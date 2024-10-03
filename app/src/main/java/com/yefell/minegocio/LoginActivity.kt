@@ -31,10 +31,8 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login exitoso", Toast.LENGTH_SHORT).show()
 
                 // Redirigir a la actividad de Crear Producto
-                val intent = Intent(this, CreateProductActivity::class.java)
+                val intent = Intent(this, IndexActivity::class.java)
                 startActivity(intent)
-
-                // Finaliza la actividad de login para que no pueda volver
                 finish()
             } else {
                 Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
