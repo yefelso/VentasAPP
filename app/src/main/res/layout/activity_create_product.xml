@@ -25,19 +25,21 @@
         android:hint="Stock del producto"
         android:inputType="number" />
 
+    <!-- EditText para ingresar la URL de la imagen -->
+    <EditText
+        android:id="@+id/productImageUrlEditText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Ingrese URL de la imagen" />
+
     <ImageView
         android:id="@+id/productImageView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
         android:layout_marginBottom="16dp"
-        android:contentDescription="@string/descripcion_imagen" />
-
-    <Button
-        android:id="@+id/uploadImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Subir Imagen" />
+        android:contentDescription="@string/descripcion_imagen"
+        android:visibility="gone"/> <!-- Hacemos invisible el ImageView -->
 
     <Button
         android:id="@+id/saveProductButton"
