@@ -30,8 +30,9 @@
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".ProductosActivity" />
         <activity android:name=".CreateProductActivity" />
-        <activity android:name=".CatalogoActivity" />
         <activity android:name=".IndexActivity" />
+        <activity android:name=".CatalogoActivity" />
+
 
 
 

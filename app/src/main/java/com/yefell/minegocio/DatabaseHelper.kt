@@ -75,18 +75,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
     }
 
-    // Métodos para manejar productos
-
-    // Método para agregar un producto
     fun agregarProducto(producto: Producto) {
         val db = this.writableDatabase
         val values = ContentValues().apply {
-            put(COLUMN_NOMBRE_PRODUCTO, producto.nombre) // Asegúrate de que esto esté bien definido
+            put(COLUMN_NOMBRE_PRODUCTO, producto.nombre)
             put(COLUMN_PRECIO_PRODUCTO, producto.precio)
             put(COLUMN_STOCK_PRODUCTO, producto.stock)
             put(COLUMN_IMAGEN_PRODUCTO, producto.imagen)
         }
-        db.insert(TABLE_PRODUCTOS, null, values) // Asegúrate de que TABLE_PRODUCTOS esté bien definido
+        db.insert(TABLE_PRODUCTOS, null, values)
         db.close()
     }
 
@@ -112,20 +109,18 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return productos
     }
 
-    // Método para actualizar un producto
-    fun actualizarProducto(id: Int, nombre: String, precio: Double, stock: Int, imagen: String) { // Cambia 'stok' a 'stock'
+    fun actualizarProducto(id: Int, nombre: String, precio: Double, stock: Int, imagen: String) {
         val db = this.writableDatabase
         val values = ContentValues().apply {
             put(COLUMN_NOMBRE_PRODUCTO, nombre)
             put(COLUMN_PRECIO_PRODUCTO, precio)
-            put(COLUMN_STOCK_PRODUCTO, stock) // Cambia 'stok' a 'stock'
+            put(COLUMN_STOCK_PRODUCTO, stock)
             put(COLUMN_IMAGEN_PRODUCTO, imagen)
         }
         db.update(TABLE_PRODUCTOS, values, "$COLUMN_ID_PRODUCTO = ?", arrayOf(id.toString()))
         db.close()
     }
 
-    // Método para eliminar un producto
     fun eliminarProducto(id: Int) {
         val db = this.writableDatabase
         db.delete(TABLE_PRODUCTOS, "$COLUMN_ID_PRODUCTO = ?", arrayOf(id.toString()))

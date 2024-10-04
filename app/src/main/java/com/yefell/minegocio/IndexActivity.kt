@@ -2,8 +2,9 @@ package com.yefell.minegocio
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class IndexActivity : AppCompatActivity() {
 
@@ -14,6 +15,7 @@ class IndexActivity : AppCompatActivity() {
         // Botón para agregar productos
         val buttonAgregarProducto = findViewById<Button>(R.id.buttonAgregarProducto)
         buttonAgregarProducto.setOnClickListener {
+            Toast.makeText(this, "Navegando a Crear Producto", Toast.LENGTH_SHORT).show() // Mensaje para ver si se activa el botón
             val intent = Intent(this, CreateProductActivity::class.java)
             startActivity(intent)
         }
@@ -21,6 +23,7 @@ class IndexActivity : AppCompatActivity() {
         // Botón para ir al catálogo
         val buttonIrCatalogo = findViewById<Button>(R.id.buttonIrCatalogo)
         buttonIrCatalogo.setOnClickListener {
+            Toast.makeText(this, "Navegando al Catálogo", Toast.LENGTH_SHORT).show() // Mensaje para ver si se activa el botón
             val intent = Intent(this, CatalogoActivity::class.java)
             startActivity(intent)
         }
