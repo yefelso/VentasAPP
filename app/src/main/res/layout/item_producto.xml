@@ -8,48 +8,63 @@
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
 
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical"
-android:padding="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-<ImageView
-    android:id="@+id/imageViewProducto"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:scaleType="centerCrop" />
+        <ImageView
+            android:id="@+id/imageViewProducto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop" />
 
-<TextView
-    android:id="@+id/textViewNombreProducto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Nombre del Producto"
-    android:textStyle="bold"
-    android:textSize="18sp"
-    android:layout_marginTop="8dp" />
+        <TextView
+            android:id="@+id/textViewNombreProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Producto"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp" />
 
-<TextView
-    android:id="@+id/textViewPrecioProducto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Precio"
-    android:layout_marginTop="4dp" />
+        <TextView
+            android:id="@+id/textViewPrecioProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio"
+            android:layout_marginTop="4dp" />
 
-<TextView
-    android:id="@+id/textViewStockProducto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Stock"
-    android:layout_marginTop="4dp" />
+        <TextView
+            android:id="@+id/textViewStockProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stock"
+            android:layout_marginTop="4dp" />
 
-<!-- Botón para comprar -->
-<Button
-    android:id="@+id/buttonComprar"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Comprar"
-    android:layout_marginTop="8dp" />
-</LinearLayout>
+        <!-- Botón para comprar -->
+        <Button
+            android:id="@+id/buttonComprar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comprar"
+            android:layout_marginTop="8dp" />
 
-    </androidx.cardview.widget.CardView>
+        <!-- Botón para editar -->
+        <Button
+            android:id="@+id/buttonEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar"
+            android:layout_marginTop="8dp" />
+
+        <!-- Botón para eliminar -->
+        <Button
+            android:id="@+id/buttonEliminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,47 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<!-- index.xml -->
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@color/white">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-<TextView
-android:id="@+id/textViewBienvenida"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="¡Bienvenido a la aplicación MiNegocio!"
-android:textSize="18sp"
-android:textStyle="bold"
-android:gravity="center"
-app:layout_constraintTop_toTopOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintBottom_toTopOf="@+id/buttonAgregarProducto"
-android:layout_marginBottom="32dp"
-android:layout_marginTop="32dp"/>
+    <Button
+        android:id="@+id/buttonAgregarProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar Producto" />
 
-<Button
-android:id="@+id/buttonAgregarProducto"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Agregar Producto"
-android:onClick="irAgregarProducto"
-app:layout_constraintTop_toBottomOf="@+id/textViewBienvenida"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintBottom_toTopOf="@+id/buttonIrCatalogo"
-android:layout_marginTop="16dp"/>
+    <Button
+        android:id="@+id/buttonIrCatalogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ir al Catálogo" />
 
-<Button
-android:id="@+id/buttonIrCatalogo"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Ir al Catálogo"
-android:onClick="irAlCatalogo"
-app:layout_constraintTop_toBottomOf="@+id/buttonAgregarProducto"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-android:layout_marginTop="16dp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Nuevo botón para ir a Inventario -->
+    <Button
+        android:id="@+id/buttonIrInventario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ir al Inventario" />
+
+</LinearLayout>

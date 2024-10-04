@@ -1,13 +1,14 @@
 package com.yefell.minegocio
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class ProductosActivity : AppCompatActivity() {
 
-    lateinit var databaseHelper: DatabaseHelper
+    private lateinit var databaseHelper: DatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +24,20 @@ class ProductosActivity : AppCompatActivity() {
         val productos = databaseHelper.obtenerProductos()
 
         // Crear el adaptador y asignarlo al RecyclerView
-        val adapter = ProductoAdapter(productos)
+        val adapter = ProductoAdapter(
+            productos = productos,
+            onEditClick = { producto ->
+                // Manejar la lógica de edición del producto
+                Log.d("ProductosActivity", "Editar producto: ${producto.nombre}")
+                // Aquí podrías abrir una actividad o un diálogo para editar el producto
+            },
+            onDeleteClick = { producto ->
+                // Manejar la lógica de eliminación del producto
+                Log.d("ProductosActivity", "Eliminar producto: ${producto.nombre}")
+                // Aquí podrías mostrar un diálogo de confirmación y luego eliminar el producto de la base de datos
+            }
+        )
+
         recyclerViewProductos.adapter = adapter
     }
 }

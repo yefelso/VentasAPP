@@ -121,9 +121,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
     }
 
-    fun eliminarProducto(id: Int) {
+    fun eliminarProducto(id: Int): Boolean {
         val db = this.writableDatabase
-        db.delete(TABLE_PRODUCTOS, "$COLUMN_ID_PRODUCTO = ?", arrayOf(id.toString()))
-        db.close()
+        val result = db.delete("productos", "id=?", arrayOf(id.toString()))
+        return result > 0 // Devuelve true si se eliminó al menos una fila, false si no.
     }
 }

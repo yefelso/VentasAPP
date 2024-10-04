@@ -4,47 +4,49 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 
-class ProductoAdapter(private val productos: List<Producto>) : RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder>() {
+class ProductoAdapter(
+    private val productos: List<Producto>,
+    private val onEditClick: (Producto) -> Unit,
+    private val onDeleteClick: (Producto) -> Unit
+) : RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder>() {
 
+    // Clase ViewHolder para manejar la vista de cada producto
     class ProductoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageViewProducto: ImageView = itemView.findViewById(R.id.imageViewProducto)
-        val textViewNombreProducto: TextView = itemView.findViewById(R.id.textViewNombreProducto)
-        val textViewPrecioProducto: TextView = itemView.findViewById(R.id.textViewPrecioProducto)
-        val textViewStockProducto: TextView = itemView.findViewById(R.id.textViewStockProducto)
-        val buttonComprar: Button = itemView.findViewById(R.id.buttonComprar) // Referencia al botón
+        val textViewNombre: TextView = itemView.findViewById(R.id.textViewNombreProducto)
+        val textViewPrecio: TextView = itemView.findViewById(R.id.textViewPrecioProducto)
+        val textViewStock: TextView = itemView.findViewById(R.id.textViewStockProducto)
+        val buttonEditar: Button = itemView.findViewById(R.id.buttonEditar)
+        val buttonEliminar: Button = itemView.findViewById(R.id.buttonEliminar)
     }
 
+    // Método para crear el ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_producto, parent, false)
-        return ProductoViewHolder(itemView)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_producto, parent, false)
+        return ProductoViewHolder(view)
     }
 
+    // Método para vincular los datos al ViewHolder
     override fun onBindViewHolder(holder: ProductoViewHolder, position: Int) {
         val producto = productos[position]
-        holder.textViewNombreProducto.text = producto.nombre
-        holder.textViewPrecioProducto.text = "Precio: ${producto.precio}"
-        holder.textViewStockProducto.text = "Stock: ${producto.stock}"
+        holder.textViewNombre.text = producto.nombre
+        holder.textViewPrecio.text = String.format("$%.2f", producto.precio)
+        holder.textViewStock.text = producto.stock.toString()
 
-        // Usar Glide para cargar la imagen del producto
-        Glide.with(holder.itemView.context)
-            .load(producto.imagen)
-            .into(holder.imageViewProducto)
+        // Manejar clic en el botón de editar
+        holder.buttonEditar.setOnClickListener {
+            onEditClick(producto)
+        }
 
-        // Acción al hacer clic en el botón "Comprar"
-        holder.buttonComprar.setOnClickListener {
-            // Aquí puedes realizar la acción de compra
-            Toast.makeText(holder.itemView.context, "Compraste ${producto.nombre}", Toast.LENGTH_SHORT).show()
-
-            // O puedes iniciar otra actividad, o gestionar la compra
+        // Manejar clic en el botón de eliminar
+        holder.buttonEliminar.setOnClickListener {
+            onDeleteClick(producto)
         }
     }
 
+    // Método para obtener el número de ítems en la lista
     override fun getItemCount(): Int {
         return productos.size
     }

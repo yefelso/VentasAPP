@@ -27,5 +27,13 @@ class IndexActivity : AppCompatActivity() {
             val intent = Intent(this, CatalogoActivity::class.java)
             startActivity(intent)
         }
+
+        // Botón para ir al inventario
+        val buttonIrInventario = findViewById<Button>(R.id.buttonIrInventario)
+        buttonIrInventario.setOnClickListener {
+            Toast.makeText(this, "Navegando al Inventario", Toast.LENGTH_SHORT).show() // Mensaje para ver si se activa el botón
+            val intent = Intent(this, InventarioActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
