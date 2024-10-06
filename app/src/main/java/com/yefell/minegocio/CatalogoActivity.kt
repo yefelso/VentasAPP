@@ -2,16 +2,17 @@ package com.yefell.minegocio
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.widget.Toast
 
 class CatalogoActivity : AppCompatActivity() {
 
     private lateinit var recyclerViewProductos: RecyclerView
     private lateinit var productoAdapter: ProductoAdapter
     private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var listaProductos: List<Producto>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,46 +24,26 @@ class CatalogoActivity : AppCompatActivity() {
 
         try {
             // Obtener la lista de productos desde la base de datos
-            val listaProductos = databaseHelper.obtenerProductos()
-
-            // Configurar el adaptador con las funciones de edición y eliminación
-            productoAdapter = ProductoAdapter(listaProductos,
-                onEditClick = { producto ->
-                    // Acción al hacer clic en editar
-                    editarProducto(producto)
-                },
-                onDeleteClick = { producto ->
-                    // Acción al hacer clic en eliminar
-                    eliminarProducto(producto)
-                }
-            )
-            recyclerViewProductos.adapter = productoAdapter
+            cargarProductos()
             Log.d("CatalogoActivity", "Productos cargados correctamente: ${listaProductos.size} productos encontrados.")
         } catch (e: Exception) {
             Log.e("CatalogoActivity", "Error al cargar productos: ${e.message}")
+            Toast.makeText(this, "Error al cargar productos", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun editarProducto(producto: Producto) {
-        // Implementar lógica para editar el producto
-        Toast.makeText(this, "Editar producto: ${producto.nombre}", Toast.LENGTH_SHORT).show()
-        // Aquí podrías abrir un nuevo Activity o un diálogo para editar el producto
-    }
-
-    private fun eliminarProducto(producto: Producto) {
-        // Implementar lógica para eliminar el producto
-        val success = databaseHelper.eliminarProducto(producto.id) // Asumiendo que 'id' es la propiedad del producto
-        if (success) {
-            Toast.makeText(this, "Producto eliminado: ${producto.nombre}", Toast.LENGTH_SHORT).show()
-            // Actualizar la lista de productos después de eliminar
-            val listaProductos = databaseHelper.obtenerProductos()
-            productoAdapter = ProductoAdapter(listaProductos,
-                onEditClick = { producto -> editarProducto(producto) },
-                onDeleteClick = { producto -> eliminarProducto(producto) }
-            )
-            recyclerViewProductos.adapter = productoAdapter
-        } else {
-            Toast.makeText(this, "Error al eliminar el producto", Toast.LENGTH_SHORT).show()
-        }
+    private fun cargarProductos() {
+        // Cargar la lista de productos desde la base de datos
+        listaProductos = databaseHelper.obtenerProductos()
+        // Configurar el adaptador solo para mostrar productos, isCrudMode se establece en false
+        productoAdapter = ProductoAdapter(listaProductos, isCrudMode = false,
+            onEditClick = { producto ->
+                // Aquí puedes implementar la lógica si es necesario más adelante
+            },
+            onDeleteClick = { producto ->
+                // Aquí puedes implementar la lógica si es necesario más adelante
+            }
+        )
+        recyclerViewProductos.adapter = productoAdapter
     }
 }

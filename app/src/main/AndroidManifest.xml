@@ -33,6 +33,7 @@
         <activity android:name=".IndexActivity" />
         <activity android:name=".CatalogoActivity" />
         <activity android:name=".InventarioActivity" />
+        <activity android:name=".EditarProductoActivity" />
 
 
 

@@ -14,12 +14,14 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Imagen del Producto -->
         <ImageView
             android:id="@+id/imageViewProducto"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop" />
 
+        <!-- Nombre del Producto -->
         <TextView
             android:id="@+id/textViewNombreProducto"
             android:layout_width="wrap_content"
@@ -29,6 +31,7 @@
             android:textSize="18sp"
             android:layout_marginTop="8dp" />
 
+        <!-- Precio del Producto -->
         <TextView
             android:id="@+id/textViewPrecioProducto"
             android:layout_width="wrap_content"
@@ -36,6 +39,7 @@
             android:text="Precio"
             android:layout_marginTop="4dp" />
 
+        <!-- Stock del Producto -->
         <TextView
             android:id="@+id/textViewStockProducto"
             android:layout_width="wrap_content"
@@ -43,13 +47,37 @@
             android:text="Stock"
             android:layout_marginTop="4dp" />
 
-        <!-- Botón para comprar -->
-        <Button
-            android:id="@+id/buttonComprar"
-            android:layout_width="wrap_content"
+        <!-- Contenedor para los botones de acción (Editar, Eliminar, Comprar) -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Comprar"
-            android:layout_marginTop="8dp" />
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="8dp">
 
+            <!-- Botón Editar -->
+            <Button
+                android:id="@+id/buttonEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Botón Eliminar -->
+            <Button
+                android:id="@+id/buttonEliminar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eliminar"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Botón Comprar -->
+            <Button
+                android:id="@+id/buttonComprar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comprar" />
+
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -37,6 +37,8 @@ class InventarioActivity : AppCompatActivity() {
     private fun loadProductos() {
         // Aquí cargarás la lista de productos desde la base de datos
         productos = databaseHelper.obtenerProductos()
+
+        // Crear el adaptador en modo CRUD
         productoAdapter = ProductoAdapter(productos, { producto ->
             // Manejar la edición
             val intent = Intent(this, EditarProductoActivity::class.java).apply {
@@ -49,7 +51,7 @@ class InventarioActivity : AppCompatActivity() {
         }, { producto ->
             // Manejar la eliminación
             eliminarProducto(producto)
-        })
+        }, true) // Pasamos true para habilitar el modo CRUD
 
         recyclerView.adapter = productoAdapter
     }

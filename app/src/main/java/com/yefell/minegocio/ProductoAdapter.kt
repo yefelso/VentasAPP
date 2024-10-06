@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 class ProductoAdapter(
     private val productos: List<Producto>,
     private val onEditClick: (Producto) -> Unit,
-    private val onDeleteClick: (Producto) -> Unit
+    private val onDeleteClick: (Producto) -> Unit,
+    private val isCrudMode: Boolean // Modo CRUD para decidir qué layout usar
 ) : RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder>() {
 
     // Clase ViewHolder para manejar la vista de cada producto
@@ -18,13 +19,15 @@ class ProductoAdapter(
         val textViewNombre: TextView = itemView.findViewById(R.id.textViewNombreProducto)
         val textViewPrecio: TextView = itemView.findViewById(R.id.textViewPrecioProducto)
         val textViewStock: TextView = itemView.findViewById(R.id.textViewStockProducto)
-        val buttonEditar: Button = itemView.findViewById(R.id.buttonEditar)
-        val buttonEliminar: Button = itemView.findViewById(R.id.buttonEliminar)
+        val buttonEditar: Button? = itemView.findViewById(R.id.buttonEditar)
+        val buttonEliminar: Button? = itemView.findViewById(R.id.buttonEliminar)
     }
 
     // Método para crear el ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_producto, parent, false)
+        // Decidir qué layout inflar basado en el modo CRUD
+        val layout = if (isCrudMode) R.layout.item_crud else R.layout.item_producto
+        val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
         return ProductoViewHolder(view)
     }
 
@@ -35,19 +38,27 @@ class ProductoAdapter(
         holder.textViewPrecio.text = String.format("$%.2f", producto.precio)
         holder.textViewStock.text = producto.stock.toString()
 
-        // Manejar clic en el botón de editar
-        holder.buttonEditar.setOnClickListener {
-            onEditClick(producto)
-        }
+        // Solo mostrar los botones de editar y eliminar si estamos en modo CRUD
+        if (isCrudMode) {
+            holder.buttonEditar?.setOnClickListener {
+                onEditClick(producto)
+            }
 
-        // Manejar clic en el botón de eliminar
-        holder.buttonEliminar.setOnClickListener {
-            onDeleteClick(producto)
+            holder.buttonEliminar?.setOnClickListener {
+                onDeleteClick(producto)
+            }
         }
     }
 
     // Método para obtener el número de ítems en la lista
     override fun getItemCount(): Int {
         return productos.size
+    }
+
+    // Método para actualizar la lista de productos
+    fun actualizarProductos(productosActualizados: List<Producto>) {
+        (productos as MutableList).clear()
+        productos.addAll(productosActualizados)
+        notifyDataSetChanged()
     }
 }

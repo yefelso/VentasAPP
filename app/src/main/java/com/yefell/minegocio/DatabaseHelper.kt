@@ -5,6 +5,8 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
+
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -121,9 +123,18 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
     }
 
+
     fun eliminarProducto(id: Int): Boolean {
         val db = this.writableDatabase
-        val result = db.delete("productos", "id=?", arrayOf(id.toString()))
-        return result > 0 // Devuelve true si se eliminó al menos una fila, false si no.
+        return try {
+            val result = db.delete("nombre_de_tu_tabla_productos", "id = ?", arrayOf(id.toString()))
+            result > 0 // Devuelve true si se eliminó al menos un registro
+        } catch (e: Exception) {
+            Log.e("DatabaseHelper", "Error al eliminar producto: ${e.message}")
+            false
+        } finally {
+            db.close()
+        }
     }
+
 }
