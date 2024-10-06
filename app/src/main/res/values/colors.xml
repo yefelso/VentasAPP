@@ -1,5 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="green">#FF00FF00</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="yellow">#FFFFFF00</color>
+    <color name="cyan">#FF00FFFF</color>
+    <color name="magenta">#FFFF00FF</color>
+
+
+    <color name="light_yellow">#FFFFE0B2</color> <!-- Light Yellow -->
+    <color name="dark_yellow">#FFFFA000</color> <!-- Dark Yellow -->
+    <color name="gold">#FFFFD700</color> <!-- Gold -->
+    <color name="mustard">#FFEBB000</color> <!-- Mustard -->
+
+
+    <color name="light_green">#FF8BC34A</color> <!-- Light Green -->
+    <color name="dark_green">#FF388E3C</color> <!-- Dark Green -->
+    <color name="teal">#FF00796B</color> <!-- Teal -->
+    <color name="lime">#FFCDDC39</color> <!-- Lime -->
+    <color name="forest_green">#FF228B22</color> <!-- Forest Green -->
+
+
+    <color name="light_blue">#FF03A9F4</color> <!-- Light Blue -->
+    <color name="dark_blue">#FF0D47A1</color> <!-- Dark Blue -->
+    <color name="sky_blue">#FF81D4FA</color> <!-- Sky Blue -->
+    <color name="navy">#FF000080</color> <!-- Navy -->
+    <color name="cyan_blue">#FF00BFFF</color> <!-- Cyan Blue -->
+
+
+    <color name="light_red">#FFFF4081</color> <!-- Light Red -->
+    <color name="dark_red">#FFB71C1C</color> <!-- Dark Red -->
+    <color name="fuchsia">#FFEA1D6E</color> <!-- Fuchsia -->
+    <color name="crimson">#FFDC143C</color> <!-- Crimson -->
+    <color name="tomato">#FFFF6347</color> <!-- Tomato -->
+
+
+    <color name="brown">#FF8B4513</color> <!-- Brown -->
+    <color name="saddle_brown">#FF8B4513</color> <!-- Saddle Brown -->
+    <color name="sienna">#FFA0522D</color> <!-- Sienna -->
+    <color name="peru">#FFCD853F</color> <!-- Peru -->
+    <color name="tan">#FFD2B48C</color> <!-- Tan -->
+
+
+    <color name="light_gray">#FFD3D3D3</color> <!-- Light Gray -->
+    <color name="gray">#FF808080</color> <!-- Gray -->
+    <color name="dark_gray">#FF696969</color> <!-- Dark Gray -->
+    <color name="silver">#FFC0C0C0</color> <!-- Silver -->
+    <color name="peach">#FFFFCBA4</color> <!-- Peach -->
+
+
+    <color name="lavender">#FFE6E6FA</color> <!-- Lavender -->
+    <color name="coral">#FFFF7F50</color> <!-- Coral -->
+    <color name="khaki">#FFF0E68C</color> <!-- Khaki -->
+    <color name="plum">#FFDDA0DD</color> <!-- Plum -->
+    <color name="orchid">#FFDA70D6</color> <!-- Orchid -->
+
+
+    <color name="violet">#FFEE82EE</color> <!-- Violet -->
+    <color name="indigo">#FF4B0082</color> <!-- Indigo -->
+    <color name="magenta_light">#FFEE82EE</color> <!-- Light Magenta -->
+    <color name="dark_orchid">#FF9932CC</color> <!-- Dark Orchid -->
+    <color name="hot_pink">#FFFF69B4</color> <!-- Hot Pink -->
+
+
+    <color name="light_sea_green">#FF20B2AA</color> <!-- Light Sea Green -->
+    <color name="medium_sea_green">#FF3CB371</color> <!-- Medium Sea Green -->
+    <color name="sea_green">#FF2E8B57</color> <!-- Sea Green -->
+    <color name="medium_aquamarine">#FF66CDAA</color> <!-- Medium Aquamarine -->
+    <color name="powder_blue">#FFB0E0E6</color> <!-- Powder Blue -->
 </resources>

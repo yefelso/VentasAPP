@@ -3,18 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
 
     <EditText
         android:id="@+id/productNameEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:backgroundTint="@color/teal"
         android:hint="Nombre del producto" />
 
     <EditText
         android:id="@+id/productPriceEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:backgroundTint="@color/teal"
         android:hint="Precio del producto"
         android:inputType="numberDecimal" />
 
@@ -22,6 +25,7 @@
         android:id="@+id/productStockEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:backgroundTint="@color/teal"
         android:hint="Stock del producto"
         android:inputType="number" />
 
@@ -30,6 +34,7 @@
         android:id="@+id/productImageUrlEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:backgroundTint="@color/teal"
         android:hint="Ingrese URL de la imagen" />
 
     <ImageView
@@ -45,5 +50,6 @@
         android:id="@+id/saveProductButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal"
         android:text="Guardar Producto" />
 </LinearLayout>

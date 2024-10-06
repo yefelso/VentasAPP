@@ -4,30 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
 
     <EditText
         android:id="@+id/usernameEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:backgroundTint="@color/light_blue"
         android:hint="Nombre de usuario" />
 
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Email"/>
+        android:backgroundTint="@color/cyan_blue"
+        android:hint="Email" />
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:backgroundTint="@color/cyan_blue"
         android:hint="Contraseña"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar"/>
+        android:backgroundTint="@color/light_blue"
+        android:text="Registrar" />
 </LinearLayout>
